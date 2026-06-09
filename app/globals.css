@@ -1,0 +1,224 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem; /* avoid fixed header covering section when smooth-scrolling */
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+  display: flex;
+  width: fit-content;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll-vertical-up {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes scroll-vertical-down {
+  0% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-scroll-vertical-up {
+  animation: scroll-vertical-up 30s linear infinite;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}
+
+.animate-scroll-vertical-down {
+  animation: scroll-vertical-down 30s linear infinite;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}
+
+.animate-scroll-vertical-up:hover,
+.animate-scroll-vertical-down:hover {
+  animation-play-state: paused;
+}
+
+/* Hero text morph transition (fade + scale) */
+@keyframes morph-in {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+.animate-morph-in {
+  animation: morph-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-morph-in-delay-1 { animation: morph-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards; opacity: 0; }
+.animate-morph-in-delay-2 { animation: morph-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards; opacity: 0; }
+.animate-morph-in-delay-3 { animation: morph-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.45s forwards; opacity: 0; }
+.animate-morph-in-delay-4 { animation: morph-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards; opacity: 0; }
+
+/* About section: center morph (heading) */
+@keyframes morph-in-center {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+.animate-morph-in-center {
+  animation: morph-in-center 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* About section: left morph (picture) */
+@keyframes morph-in-from-left {
+  from {
+    opacity: 0;
+    transform: translateX(-50px) scale(0.97);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+.animate-morph-in-from-left {
+  animation: morph-in-from-left 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
+  opacity: 0;
+}
+
+/* About section: right morph (text content) */
+@keyframes morph-in-from-right {
+  from {
+    opacity: 0;
+    transform: translateX(50px) scale(0.97);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+.animate-morph-in-from-right {
+  animation: morph-in-from-right 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.25s forwards;
+  opacity: 0;
+}
+
+/* Contact section: slower left/right morph */
+.animate-contact-morph-from-left {
+  animation: morph-in-from-left 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
+  opacity: 0;
+}
+
+.animate-contact-morph-from-right {
+  animation: morph-in-from-right 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
+  opacity: 0;
+}
+
+/* Skills: bottom-to-up morph (cards & core competencies) */
+@keyframes morph-in-from-bottom {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.97);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+.animate-morph-in-from-bottom {
+  animation: morph-in-from-bottom 1.3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-morph-in-from-bottom-delay-1 { animation: morph-in-from-bottom 1.3s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards; opacity: 0; }
+.animate-morph-in-from-bottom-delay-2 { animation: morph-in-from-bottom 1.3s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards; opacity: 0; }
+.animate-morph-in-from-bottom-delay-3 { animation: morph-in-from-bottom 1.3s cubic-bezier(0.22, 1, 0.36, 1) 0.45s forwards; opacity: 0; }
+.animate-morph-in-from-bottom-delay-4 { animation: morph-in-from-bottom 1.3s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards; opacity: 0; }
+.animate-morph-in-from-bottom-delay-5 { animation: morph-in-from-bottom 1.3s cubic-bezier(0.22, 1, 0.36, 1) 0.75s forwards; opacity: 0; }
+.animate-morph-in-from-bottom-delay-6 { animation: morph-in-from-bottom 1.3s cubic-bezier(0.22, 1, 0.36, 1) 0.9s forwards; opacity: 0; }
+.animate-morph-in-from-bottom-cta { animation: morph-in-from-bottom 1.3s cubic-bezier(0.22, 1, 0.36, 1) 1.05s forwards; opacity: 0; }
+
+/* Experience section: left-to-right morph (each card when it scrolls into view) */
+.animate-experience-morph-from-left {
+  animation: morph-in-from-left 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  opacity: 0;
+}

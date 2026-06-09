@@ -1,0 +1,51 @@
+/**
+ * Map project technology names to logo paths in /public/Logos
+ */
+export const TECH_LOGO_MAP: Record<string, string> = {
+  'React': '/Logos/React.png',
+  'React.js': '/Logos/React.png',
+  'Next.js': '/Logos/Next.js.png',
+  'Node.js': '/Logos/Node.js.png',
+  'Express': '/Logos/Express.png',
+  'Express.js': '/Logos/Express.png',
+  'TypeScript': '/Logos/TypeScript.png',
+  'JavaScript': '/Logos/JavaScript.png',
+  'Material UI': '/Logos/Material UI.png',
+  'Tailwind CSS': '/Logos/Tailwind CSS.png',
+  'MongoDB': '/Logos/MongoDB.png',
+  'PostgreSQL': '/Logos/PostgresSQL.png',
+  'MySQL': '/Logos/MySQL.png',
+  'NestJS': '/Logos/Nest.js.png',
+  'Nest.js': '/Logos/Nest.js.png',
+  'AWS EC2': '/Logos/AWS.png',
+  'AWS': '/Logos/AWS.png',
+  'Heroku': '/Logos/Heroku.png',
+  'Vercel': '/Logos/Vercel.png',
+  'Firebase': '/Logos/Firebase.png',
+  'GraphQL': '/Logos/GraphQL.png',
+  'Git': '/Logos/Git.png',
+  'GitHub': '/Logos/GitHub.png',
+  'Java': '/Logos/Java.png',
+  'Java SpringBoot': '/Logos/Java.png',
+  'Vite.js': '/Logos/Vite.js.png',
+  'HTML5': '/Logos/HTML5.png',
+  'CSS3': '/Logos/CSS3.png',
+  'NPM': '/Logos/NPM.png',
+  'Jira': '/Logos/Jira.png',
+  'Slack': '/Logos/Slack.png',
+  'Postman': '/Logos/Postman.png',
+  'Linux': '/Logos/Linux.png',
+  'Homebrew': '/Logos/Homebrew.png',
+  'Nodemon': '/Logos/Nodemon.png',
+  'Stack Overflow': '/Logos/Stack Overflow.png',
+  'Visual Studio Code (VS Code)': '/Logos/Visual Studio Code (VS Code).png',
+  'Python': '/Logos/Python.svg',
+  'Flask': '/Logos/Flask.svg',
+  'FastAPI': '/Logos/FastAPI.svg',
+  'Cursor AI': '/Logos/Cursor.svg',
+  'Claude Code': '/Logos/Claude.svg',
+};
+
+export function getTechLogo(tech: string): string | null {
+  return TECH_LOGO_MAP[tech] ?? null;
+}
