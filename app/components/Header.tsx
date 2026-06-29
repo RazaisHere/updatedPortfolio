@@ -135,7 +135,7 @@ export default function Header() {
             : 'bg-black/20 backdrop-blur-md border border-white/20 shadow-md'
         }`}
       >
-        <div className="flex items-center justify-between px-5 sm:px-8 py-4 md:py-5 min-h-[64px] md:min-h-[72px]">
+        <div className="flex items-center justify-between px-5 sm:px-8 py-5 min-h-[72px] md:min-h-[72px]">
           <button
             onClick={() => scrollToSection('home')}
             className={`text-lg sm:text-xl md:text-2xl font-bold truncate max-w-[55%] sm:max-w-none transition-colors ${nameClass}`}
@@ -182,8 +182,10 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         <div
-          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out px-4 sm:px-6 ${
-            isMobileMenuOpen ? 'max-h-96 opacity-100 pb-4' : 'max-h-0 opacity-0 pb-0'
+          className={`md:hidden transition-all duration-300 ease-in-out px-4 sm:px-6 ${
+            isMobileMenuOpen
+              ? 'max-h-[min(32rem,calc(100dvh-6rem))] opacity-100 pb-5 overflow-y-auto'
+              : 'max-h-0 opacity-0 pb-0 overflow-hidden'
           }`}
         >
           <div className="bg-white/95 dark:bg-gray-900/95 backdrop-blur-md rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 py-2 px-2 space-y-1">
